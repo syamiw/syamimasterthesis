@@ -1,5 +1,4 @@
-![CI](https://github.com/syamiw/syamimasterthesis/actions/workflows/main.yml/badge.svg)
-
+<!-- textlint-disable-->
 - 2022/11/14 MAUI
 - 2022/12/07 修さんデー(仮綴前レビュー)
 - 2022/12/22 修士論文仮綴締切日
