@@ -1,0 +1,26 @@
+{
+  "name": "syamimasterthesis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syamiw/syamimasterthesis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syamiw/syamimasterthesis/issues"
+  },
+  "homepage": "https://github.com/syamiw/syamimasterthesis#readme",
+  "devDependencies": {
+    "textlint": "^12.2.2",
+    "textlint-rule-preset-ja-spacing": "^2.2.0",
+    "textlint-rule-preset-ja-technical-writing": "^7.0.0",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0"
+  }
+}
