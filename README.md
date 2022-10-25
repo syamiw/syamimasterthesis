@@ -1,0 +1,1 @@
+![CI](https://github.com/syamiw/syamimasterthesis/actions/workflows/main.yml/badge.svg)
