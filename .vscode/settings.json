@@ -26,6 +26,9 @@
     // 使用パッケージのコマンドや環境の補完を有効にする
     "latex-workshop.intellisense.package.enabled": true,
 
+    // tex文書のカーソル位置でPDFを表示する
+    "latex-workshop.synctex.afterBuild.enabled": true,
+
     // 生成ファイルを削除するときに対象とするファイル
     // デフォルト値に "*.synctex.gz" を追加
     "latex-workshop.latex.clean.fileTypes": [
@@ -82,4 +85,14 @@
             ]
         },
     ],
+
+    // エラー無視
+    "latex-workshop.message.latexlog.exclude": [
+        "Rerun to get /PageLabels entry.",
+        "There were undefined citations.",
+        "There were undefined references.",
+        "Label.* may have changed. Rerun to get cross-references right.",
+        "Reference.*undefined.",
+        "Citation.*undefined."
+    ]
 }
