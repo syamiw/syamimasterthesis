@@ -94,5 +94,5 @@
         "Label.* may have changed. Rerun to get cross-references right.",
         "Reference.*undefined.",
         "Citation.*undefined."
-    ]
+    ],
 }
