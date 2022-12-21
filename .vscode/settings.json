@@ -93,6 +93,7 @@
         "There were undefined references.",
         "Label.* may have changed. Rerun to get cross-references right.",
         "Reference.*undefined.",
-        "Citation.*undefined."
+        "Citation.*undefined.",
+        "\\headheight is too small (12.0pt):.*"
     ],
 }
