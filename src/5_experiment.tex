@@ -3,7 +3,7 @@
 %仮説を検証するためにやったことを再現可能な様に書く
 %結果も書く
 
-本章では提案手法の実装について述べる。
+本章では提案手法の実験について述べる。
 
 \section{概要}
 \label{sub:実験概要}
@@ -17,9 +17,40 @@
 \end{figure}
 図\ref{img:類似条文検出の実装イメージ}に示したように、まず、読みたい利用規約について、前処理を行う。ここでは、URLの置き換え、かっこなどの記号の除去、「利用者」「会員」などを「ユーザー」に表現を揃えるなどの処理を行う。また、条文と条文でない部分(「第○条」、「以上」のような表現など)を除去するための情報がここで与えられる。本研究では、条文でない部分に関しての情報はあらかじめ手作業で与えることとした。その後、文章ベクトルを生成する。本研究では、東北大乾研の大規模日本語モデルを利用した。そして、生成された文章ベクトルと過去に同意した利用規約データベースに保存されている文ベクトルとコサイン類似度の計算を行い、表示する。表示したのち、利用者が同意をした場合は、文章の成形、保存された文章に前処理で取り除けなかった余分な情報などが含まれないかを確認し、必要であれば編集と文章ベクトルの再生成を行い、過去に同意した利用規約データベースに保存する。その情報が増えることにより、検出される条文が増える。同意しなかった場合は保存をしない。
 
+また、利用規約警告検出についても同様の処理を行う。
+
 \section{表示方法}
 表示方法については、利用規約の類似条文検出に加えて、判断の材料にするために、類似度の高い順に3つの条文とその条文をもつサービス名、コサイン類似度を表示した。3つに設定した根拠としては、他サービスの条文と比較するときに複数サービスの条文と比較することで、より類似度を利用者が比較しやすいと考えたからである。
 
+また、利用規約を目立たせる表示として、一定の閾値のコサイン類似度を超えた背景をオレンジ色とすることにした。
+\begin{figure}[h]
+  \begin{center}
+      \includegraphics[width=16cm]{img/alpha.png}
+      \caption{Alpha社の利用規約/どの利用規約も既読ではない}
+      \label{img:Alpha社の利用規約/どの利用規約も既読ではない}
+  \end{center}
+\end{figure}
+\begin{figure}[h]
+  \begin{center}
+      \includegraphics[width=16cm]{img/alpha_b.png}
+      \caption{Alpha社の利用規約/Beta社が既読}
+      \label{img:Alpha社の利用規約/Beta社が既読}
+  \end{center}
+\end{figure}
+\begin{figure}[h]
+  \begin{center}
+      \includegraphics[width=16cm]{img/alpha_bg.png}
+      \caption{Alpha社の利用規約/Beta社、Gamma社が既読}
+      \label{img:Alpha社の利用規約/Beta社、Gamma社が既読}
+  \end{center}
+\end{figure}
+\begin{figure}[h]
+  \begin{center}
+      \includegraphics[width=16cm]{img/alpha_bgd.png}
+      \caption{Alpha社の利用規約/Beta社、Gamma社、Delta社が既読}
+      \label{img:Alpha社の利用規約/Beta社、Gamma社、Delta社が既読}
+  \end{center}
+\end{figure}
 %\section{実行環境}
 %\begin{center}
 %  \begin{tabular}{ll} \hline
