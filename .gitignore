@@ -14,3 +14,4 @@ etc
 .DS_Store
 node_modules/
 Makefile
+syamithesis*.pdf
