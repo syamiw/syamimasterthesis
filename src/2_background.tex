@@ -86,11 +86,33 @@
 本節では、本研究において前提となる技術について述べる。
 
 \subsection{自然言語処理}
+人工言語とは、コンピュータで用いるコンピュータ語のような、形式言語のような言語である。これに対して、自然言語とは、人間がコミュニケーションを取るために、民族や国家などにより自然に運用されてきた言語のことである。例えば、日本語や英語のことである。自然言語のコンピュータ処理に関する学問分野、研究開発分野を自然言語処理とよぶ\cite{黒橋禎夫2019-03-20}。本研究では、自然言語処理を利用して、利用規約の解釈をを行う。
 
 \subsection{Transformer}
+Transformer\cite{https://doi.org/10.48550/arxiv.1706.03762}は、自然言語処理用の深層学習で使われているモデルである。Transformer以前の自然言語処理では、回帰型ニューラルネットワークが主に用いられていた。これは、自然言語が順序性を持っていることに着目をし、入力された文章を端から端まで次の単語を読む時間ステップごとに処理した内容を記憶していく神経ユニットを持っているモデルである\cite{TheUnrea66:online}。しかし、このモデルは離れた位置にある情報を考慮して処理を行うのが難しいという問題がある。これに対してTransformerはテキストの文脈を用いているが回帰型ニューラルネットワークのような時系列的な方法は使用していない。入力されたある単語が与えられると、その周りの全ての単語を見てself-attention(注意機構、自己注意)と呼ばれるある1文の単語だけを使って計算された単語間の関連づけをするための概念を用いて、文章の文脈に関して表現をする。例えば、以下の文を翻訳したい入力文だとする。
+
+“The animal didn't cross the street because it was too tired”
+
+この文章のitが何を指しているのかは人間には簡単に文脈から理解することができるが、"street"のことを指しているのか、"The animal"を指しているのかはコンピュータが理解することは困難である。モデルが"it"という単語を処理しているとき、self-attentionは"it"を"The animal"を関連づけることができる\cite{TheIllus32:online}。Transformerはこのように文脈をモデル化することができるため、他の深層学習に比べて表現能力が高いことからよく利用されている。
+\begin{figure}[h]
+  \begin{center}
+      \includegraphics[width=10cm]{img/transformer_self-attention.png}
+      \caption{Transformerにおけるself-attentionの仕組み、文献\cite{TheIllus32:online} より引用}
+      \label{img:transformer_self-attention}
+  \end{center}
+\end{figure}
 
 \subsection{BERT}
+Transformerが発表された後に自然言語処理ではTransformerを用いた様々な発展モデルが発表された。そのうちのひとつがBidirectional Encoder Representations from \\Transformers(BERT)\cite{https://doi.org/10.48550/arxiv.1810.04805}である。BERTは、非常に大規模なTransformerのモデルを、文の一部をそれ以外の部分を使って予測することで、教師なしで学習(事前学習と呼ばれる)するというものである。これによって、言語の高レベルなニュアンスをエンコードできるようになる\cite{Sowmya_Vajjala2022-02-04}。
+\begin{figure}[h]
+  \begin{center}
+      \includegraphics[width=10cm]{img/BERT-method.png}
+      \caption{BERTの事前学習とファインチューニングされたタスクごとのモデル、文献\cite{https://doi.org/10.48550/arxiv.1810.04805} より引用}
+      \label{img:BERT-method}
+  \end{center}
+\end{figure}
+図\ref{img:BERT-method}の左側は事前学習されたモデルである。このモデルは、右側に示されているようなテキスト分類(MNLI)、固有表現認識(NER)、質問応答(SQuAD)のような自然言語処理タスクのためにファインチューニングを行う。事前学習された膨大な量の知識により、BERTは先述したようなさまざまなタスクのために知識を効率的に移転をすることができる。
+%TODO:時間あったらもっと詳しく書く
 
 \subsection{Sentence BERT}
 Sentence BERTとは、事前学習
-
