@@ -112,7 +112,9 @@ Transformerが発表された後に自然言語処理ではTransformerを用い�
   \end{center}
 \end{figure}
 図\ref{img:BERT-method}の左側は事前学習されたモデルである。このモデルは、右側に示されているようなテキスト分類(MNLI)、固有表現認識(NER)、質問応答(SQuAD)のような自然言語処理タスクのためにファインチューニングを行う。事前学習された膨大な量の知識により、BERTは先述したようなさまざまなタスクのために知識を効率的に移転をすることができる。
+
+%事前学習では、ラベルなしテキストデータを用いて、Next Sentence Prediction(NSP)と、
 %TODO:時間あったらもっと詳しく書く
 
 \subsection{Sentence BERT}
-Sentence BERTとは、事前学習
+Sentence BERTとは、事前学習済みBERTを
