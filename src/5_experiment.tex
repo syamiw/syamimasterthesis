@@ -33,7 +33,7 @@
 以上は処理の例である。このような処理を通して、類似度の精度の向上を行う。
 
 \section{文ベクトル生成}
-類似度を求めるために、文ベクトルの生成を行う。文章ベクトルの生成には、質問モデルなどで精度の高かったSentence-BERTを利用する。また、日本語の事前学習モデルについては、芝山ら\cite{weko_212207_1}の研究において精度が高かった、東北大版のBERT\footnote{https://github.com/cl-tohoku/bert-japanese}をもとに生成されたSentence BERTモデル\footnote{https://huggingface.co/sonoisa/sentence-bert-base-ja-mean-tokens-v2}を利用して生成を行う。
+類似度を求めるために、文ベクトルの生成を行う。文章ベクトルの生成には、質問モデルなどで精度の高かったSentence-BERTを利用する。また、日本語の事前学習モデルについては、芝山ら\cite{shibayama-shinnou-2021-construction}の研究において精度が高かった、東北大版のBERT\footnote{https://github.com/cl-tohoku/bert-japanese}をもとに生成されたSentence BERTモデル\footnote{https://huggingface.co/sonoisa/sentence-bert-base-ja-mean-tokens-v2}を利用して生成を行う。
 
 \section{コサイン類似度}
 生成した文ベクトルは、以下の式でコサイン類似度を求めることにより、与えられた文同士の意味の近さを数値化することができる。
