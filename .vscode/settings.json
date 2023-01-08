@@ -96,4 +96,5 @@
         "Citation.*undefined.",
         "\\headheight is too small (12.0pt):.*"
     ],
+    "editor.unicodeHighlight.nonBasicASCII": "inUntrustedWorkspace",
 }
